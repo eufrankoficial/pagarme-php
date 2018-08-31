@@ -22,14 +22,15 @@ class BankAccounts extends Endpoint
         );
     }
 
-    /*
+    /**
      * @return \ArrayObject
      */
-    public function getList()
+    public function getList(array $payload = null)
     {
         return $this->client->request(
             self::GET,
-            Routes::bankAccounts()->base()
+            Routes::bankAccounts()->base(),
+            ['query' => ['foo' => 'bar']]
         );
     }
 

@@ -40,6 +40,7 @@ final class BankAccountTest extends PagarMeTestCase
             BANK ACCOUNTAPI BANK ACCOUNT'
         ]);
 
+
         $this->assertEquals('/1/bank_accounts', self::getRequestUri($requestsContainer));
         $this->assertEquals(BankAccounts::POST, self::getRequestMethod($requestsContainer));
         $this->assertEquals($response->getArrayCopy(), json_decode(self::jsonMock('BankAccountMock'), true));
@@ -56,6 +57,9 @@ final class BankAccountTest extends PagarMeTestCase
         $client = self::buildClient($requestsContainer, $mock);
 
         $response = $client->bankAccounts()->getList();
+
+        var_dump($requestsContainer);
+        var_dump(self::getRequestQueryString($requestsContainer));
 
         $this->assertEquals('/1/bank_accounts', self::getRequestUri($requestsContainer));
         $this->assertEquals(BankAccounts::GET, self::getRequestMethod($requestsContainer));

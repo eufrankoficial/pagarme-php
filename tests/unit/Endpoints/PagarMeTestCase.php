@@ -29,6 +29,16 @@ abstract class PagarMeTestCase extends TestCase
      *
      * @return string
      */
+    protected static function getRequestQueryString($container)
+    {
+        return $container[0]['request']->getUri()->getQuery();
+    }
+
+    /**
+     * @param array $container
+     *
+     * @return string
+     */
     protected static function getRequestMethod($container)
     {
         return $container[0]['request']->getMethod();

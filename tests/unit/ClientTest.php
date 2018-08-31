@@ -75,22 +75,4 @@ final class ClientTest extends TestCase
 
         $response = $client->request(Endpoint::POST, 'transactions');
     }
-
-    public function testTransactions()
-    {
-        $client = new Client('apiKey');
-
-        $transactions = $client->transactions();
-
-        $this->assertInstanceOf(Transactions::class, $transactions);
-    }
-
-    public function testCustomers()
-    {
-        $client = new Client('apiKey');
-
-        $customers = $client->customers();
-
-        $this->assertInstanceOf(Customers::class, $customers);
-    }
 }
