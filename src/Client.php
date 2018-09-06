@@ -14,6 +14,7 @@ use PagarMe\Endpoints\PaymentLinks;
 use PagarMe\Endpoints\Plans;
 use PagarMe\Endpoints\Transfers;
 use PagarMe\Endpoints\Subscriptions;
+use PagarMe\Endpoints\Balances;
 use GuzzleHttp\Client as HttpClient;
 use PagarMe\Exceptions\InvalidJsonException;
 
@@ -85,6 +86,11 @@ class Client
     private $subscriptions;
 
     /**
+     * @var \PagarMe\Endpoints\Balances
+     */
+    private $balances;
+
+    /**
      * @param string $apiKey
      * @param array|null $extras
      */
@@ -110,6 +116,7 @@ class Client
         $this->paymentLinks = new PaymentLinks($this);
         $this->transfers = new Transfers($this);
         $this->subscriptions = new Subscriptions($this);
+        $this->balances = new Balances($this);
     }
 
     /**
@@ -218,5 +225,13 @@ class Client
     public function subscriptions()
     {
         return $this->subscriptions;
+    }
+
+    /**
+     * @return \PagarMe\Endpoints\Balances
+     */
+    public function balances()
+    {
+        return $this->balances;
     }
 }
